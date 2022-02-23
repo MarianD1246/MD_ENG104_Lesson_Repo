@@ -18,14 +18,24 @@ public class Program
         {
             greeting = "Good morning!";
         }
-        else if (timeOfDay >= 12 && timeOfDay <= 18)
+        else if (timeOfDay > 12 && timeOfDay <= 18)
         {
             greeting = "Good afternoon!";
         }
-        else
+        else if (timeOfDay > 18 && timeOfDay <= 24)
         {
             greeting = "Good evening!";
+        }
+        else if (timeOfDay >= 0 && timeOfDay < 5)
+        {
+            greeting = "Good evening!";
+        }
+        else
+        {
+            greeting = "Out of bound!";
         }
         return greeting;
     }
 }
+
+//throw an exception if more than 24 and less than 0 

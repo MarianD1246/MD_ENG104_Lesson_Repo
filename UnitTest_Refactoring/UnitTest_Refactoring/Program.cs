@@ -14,25 +14,23 @@ public class Program
     public static string Greeting(int timeOfDay)
     {
         string greeting;
-        if (timeOfDay >= 5 && timeOfDay <= 12)
+        switch (timeOfDay)
         {
-            greeting = "Good morning!";
-        }
-        else if (timeOfDay > 12 && timeOfDay <= 18)
-        {
-            greeting = "Good afternoon!";
-        }
-        else if (timeOfDay > 18 && timeOfDay <= 24)
-        {
-            greeting = "Good evening!";
-        }
-        else if (timeOfDay >= 0 && timeOfDay < 5)
-        {
-            greeting = "Good evening!";
-        }
-        else
-        {
-            greeting = "Out of bound!";
+            case >= 0 and < 5:
+                greeting = "Good evening!";
+                break;
+            case >= 5 and <= 12:
+                greeting = "Good morning!";
+                break;
+            case > 12 and <= 18:
+                greeting = "Good afternoon!";
+                break;
+            case > 18 and <= 24:
+                greeting = "Good evening!";
+                break;
+            default:
+                greeting = "Out of bound!";
+                break;
         }
         return greeting;
     }

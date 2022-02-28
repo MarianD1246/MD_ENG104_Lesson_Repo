@@ -25,7 +25,7 @@ namespace TestFirstExercises
         // implement this method so that it returns true if num is even, otherwise false
         public static bool EvenOdd(int num)
         {
-            return num % 2 == 0 ? true : false;
+            return num % 2 == 0;
         }
 
         // implement this method so that it returns 

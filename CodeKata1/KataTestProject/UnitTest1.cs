@@ -51,5 +51,14 @@ namespace KataTestProject
             Assert.AreEqual("Max, John and Mark like this", CodeK3.Likes(new string[] { "Max", "John", "Mark" }));
             Assert.AreEqual("Alex, Jacob and 2 others like this", CodeK3.Likes(new string[] { "Alex", "Jacob", "Mark", "Max" }));
         }
+
+        [Category("K4 Cases" )]
+        [TestCase("Invalid age.", "ia")]
+        [TestCase("Marian Dumitriu", "amiru")]
+        [TestCase("AaBbdodmoaaaB", "abdo")]
+        public void TestingK4_DuplicationInSentance(string sentance, string expected)
+        {
+            Assert.That(expected, Is.EqualTo(CodeK4.DuplicationInSentance(sentance)));
+        }
     }
-}
+} 

@@ -36,5 +36,20 @@ namespace KataTestProject
             Assert.That(expected, Is.EqualTo(CodeK2.DaysAsWeeksAndDays(days)));
         }
 
+
+        [Test, Description("It should return correct text")]
+        //[TestCase("no one likes this", new string[0])]
+        //[TestCase("Peter likes this", new string[] { "Peter" })]
+        //[TestCase("Jacob and Alex like this", new string[] { "Jacob", "Alex" })]
+        //[TestCase("Max, John and Mark like this", new string[] { "Max", "John", "Mark" })]
+        //[TestCase("Alex, Jacob and 2 others like this", new string[] { "Alex", "Jacob", "Mark", "Max" })]
+        public void TestingK3_Likes( )//string expected, string[] names)
+        {
+            Assert.AreEqual("no one likes this", CodeK3.Likes(new string[0]));
+            Assert.AreEqual("Peter likes this", CodeK3.Likes(new string[] { "Peter" }));
+            Assert.AreEqual("Jacob and Alex like this", CodeK3.Likes(new string[] { "Jacob", "Alex" }));
+            Assert.AreEqual("Max, John and Mark like this", CodeK3.Likes(new string[] { "Max", "John", "Mark" }));
+            Assert.AreEqual("Alex, Jacob and 2 others like this", CodeK3.Likes(new string[] { "Alex", "Jacob", "Mark", "Max" }));
+        }
     }
 }

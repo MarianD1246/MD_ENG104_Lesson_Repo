@@ -25,7 +25,7 @@ public class Program
             case >= 15 and < 18:
                 result = "U, PG, 12 & 15 films are available.";
                 break;
-            case > 18:
+            case >= 18:
                 result = "All films are available.";
                 break;
             default:

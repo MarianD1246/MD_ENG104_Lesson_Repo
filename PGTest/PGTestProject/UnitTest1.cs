@@ -7,8 +7,12 @@ namespace PGTestProject
     {
 
         [Category("Out of bound cases")]
-        [TestCase(-100, "Invalid age.")]
-        [TestCase(-1, "Invalid age.")]
+        [TestCase(-100)]
+        [TestCase(-1)]
+        public void GivenOutOfBoundCasesTestCases_AvalibleClassification(int age) 
+        {
+            Assert.That(() => Program.AvailableClassifications(age), Throws.TypeOf<System.ArgumentOutOfRangeException>());
+        }
 
         [Category("Edge cases")]
         [TestCase(0, "U, PG are available.")]

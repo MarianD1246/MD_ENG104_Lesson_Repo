@@ -29,8 +29,8 @@ public class Program
                 greeting = "Good evening!";
                 break;
             default:
-                greeting = "Out of bound!";
-                break;
+                throw new ArgumentOutOfRangeException($"Time enter is out of bound!");
+                //break;
         }
         return greeting;
     }

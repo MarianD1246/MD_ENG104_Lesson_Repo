@@ -24,7 +24,7 @@ namespace Tests
         [TestCase(1000, "Out of bound!")]
         public void GivenOutOfBoundCase_n1_n250_25_1000_Greeting_returnRightMessage(int time, string expected)
         {
-            Assert.That(expected, Is.EqualTo(Program.Greeting(time)));
+            Assert.That(()=> Program.Greeting(time), Throws.TypeOf<System.ArgumentOutOfRangeException>());
         }
 
         [Category("In-range cases")]

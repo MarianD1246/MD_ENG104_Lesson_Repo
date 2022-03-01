@@ -29,7 +29,7 @@ public class Program
                 result = "All films are available.";
                 break;
             default:
-                result = "Invalid age.";
+                throw new ArgumentOutOfRangeException($"Invalide age");
                 break;
         }
         return result;

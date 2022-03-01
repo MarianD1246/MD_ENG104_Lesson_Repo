@@ -17,7 +17,7 @@ public class CodeK4
             check += c;
         }
         return  dups ;
-    }
+    }   //refactor (no duplicate loops) - use 1 loop only
 
 }
 

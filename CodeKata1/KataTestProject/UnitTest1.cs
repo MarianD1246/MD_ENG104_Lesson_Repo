@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using CK1;
+using System;
 
 namespace KataTestProject
 {
@@ -43,7 +44,7 @@ namespace KataTestProject
         //[TestCase("Jacob and Alex like this", new string[] { "Jacob", "Alex" })]
         //[TestCase("Max, John and Mark like this", new string[] { "Max", "John", "Mark" })]
         //[TestCase("Alex, Jacob and 2 others like this", new string[] { "Alex", "Jacob", "Mark", "Max" })]
-        public void TestingK3_Likes( )//string expected, string[] names)
+        public void TestingK3_Likes()//string expected, string[] names)
         {
             Assert.AreEqual("no one likes this", CodeK3.Likes(new string[0]));
             Assert.AreEqual("Peter likes this", CodeK3.Likes(new string[] { "Peter" }));
@@ -52,13 +53,30 @@ namespace KataTestProject
             Assert.AreEqual("Alex, Jacob and 2 others like this", CodeK3.Likes(new string[] { "Alex", "Jacob", "Mark", "Max" }));
         }
 
-        [Category("K4 Cases" )]
+        [Category("K4 Cases")]
         [TestCase("Invalid age.", "ia")]
         [TestCase("Marian Dumitriu", "amiru")]
         [TestCase("AaBbdodmoaaaB", "abdo")]
+        [TestCase("1 2 1 aa 2", " 1a2")]
         public void TestingK4_DuplicationInSentance(string sentance, string expected)
         {
             Assert.That(expected, Is.EqualTo(CodeK4.DuplicationInSentance(sentance)));
+        }
+
+        [Category("K5 Cases")]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 5)]
+        [TestCase(new int[] { -1, -2, -3, -4, -5 }, -1)]
+        [TestCase(new int[] { 1 }, 1)]
+        [TestCase(new int[] { 1, 1, 1, 1, 1}, 1)]
+        public void TestingK5_ReturnHighestNumber(int[] myIntArray, int expected)
+        {
+            Assert.That(expected, Is.EqualTo(CodeK5.ReturnHighestNumber(myIntArray)));
+        }
+        [TestCase(new int[] {  })]
+        public void TestingK5_ReturnHighestNumber_Exceptions(int[] myIntArray)
+        {
+            var ex = Assert.Throws<ArgumentNullException>(() => CodeK5.ReturnHighestNumber(myIntArray));
+            Assert.AreEqual("The array is empty!", ex.ParamName);
         }
     }
 } 

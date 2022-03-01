@@ -1,23 +1,18 @@
-﻿
-namespace CK1;
+﻿namespace CK1;
 
 public class CodeK4
 {
     public static string DuplicationInSentance(string sentance)
     {
-        string sen = sentance;
         string dups = "";
         string check = "";
         foreach (char c in sentance.ToLower())
         {
-            foreach (char c2 in check) 
-            {
-                if (c == c2 && !dups.Contains(c)) { dups += c; break; }
-            }
+            if (check.Contains(c) && !dups.Contains(c)) 
+                dups += c;
+            
             check += c;
         }
-        return  dups ;
-    }   //refactor (no duplicate loops) - use 1 loop only
-
+        return dups;
+    }   
 }
-

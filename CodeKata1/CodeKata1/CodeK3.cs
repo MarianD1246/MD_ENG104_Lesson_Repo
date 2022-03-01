@@ -1,5 +1,4 @@
-﻿
-namespace CK1;
+﻿namespace CK1;
 
 public class CodeK3
 {
@@ -10,4 +9,3 @@ public class CodeK3
             name.Length >= 4 ? $"{name[0]}, {name[1]} and {name.Length - 2} others like this" : "no one likes this";
     }
 }
-

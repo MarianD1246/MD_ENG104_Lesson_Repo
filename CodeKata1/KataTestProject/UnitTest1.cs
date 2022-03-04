@@ -66,13 +66,13 @@ namespace KataTestProject
         [Category("K5 Cases")]
         [TestCase(new int[] { 1, 2, 3, 4, 5 }, 4)]
         [TestCase(new int[] { -1, -2, -3, -4, -5 }, -2)]
-        [TestCase(new int[] { 1, 1, 1, 1, 1}, 1)]
         public void TestingK5_ReturnSecondHighestNumber(int[] myIntArray, int expected)
         {
             Assert.That(expected, Is.EqualTo(CodeK5.ReturnSecondHighestNumber(myIntArray)));
         }
         [TestCase(new int[] {  }, "The array is empty!")]
         [TestCase(new int[] { 1 }, "The array should have at least 2 items!")]
+        [TestCase(new int[] { 1, 1, 1, 1, 1 }, "All the numbers are the same.")]
         public void TestingK5_ReturnHighestNumber_Exceptions(int[] myIntArray, string errorMessage)
         {
             //var ex = Assert.Throws<ArgumentException>(() => CodeK5.ReturnSecondHighestNumber(myIntArray));

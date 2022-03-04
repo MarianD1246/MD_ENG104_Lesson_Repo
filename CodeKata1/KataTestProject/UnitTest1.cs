@@ -37,7 +37,7 @@ namespace KataTestProject
             Assert.That(expected, Is.EqualTo(CodeK2.DaysAsWeeksAndDays(days)));
         }
 
-
+        [Category("K3 Cases")]
         [Test, Description("It should return correct text")]
         //[TestCase("no one likes this", new string[0])]
         //[TestCase("Peter likes this", new string[] { "Peter" })]
@@ -64,19 +64,41 @@ namespace KataTestProject
         }
 
         [Category("K5 Cases")]
-        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 5)]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 4)]
+        [TestCase(new int[] { -1, -2, -3, -4, -5 }, -2)]
+        [TestCase(new int[] { 1, 1, 1, 1, 1}, 1)]
+        public void TestingK5_ReturnSecondHighestNumber(int[] myIntArray, int expected)
+        {
+            Assert.That(expected, Is.EqualTo(CodeK5.ReturnSecondHighestNumber(myIntArray)));
+        }
+        [TestCase(new int[] {  }, "The array is empty!")]
+        [TestCase(new int[] { 1 }, "The array should have at least 2 items!")]
+        public void TestingK5_ReturnHighestNumber_Exceptions(int[] myIntArray, string errorMessage)
+        {
+            //var ex = Assert.Throws<ArgumentException>(() => CodeK5.ReturnSecondHighestNumber(myIntArray));
+            //Assert.AreEqual(errorMessage, ex.Message);
+            Assert.Throws(Is.TypeOf<ArgumentException>().And.Message.EqualTo(errorMessage), () => CodeK5.ReturnSecondHighestNumber(myIntArray));
+        }
+
+        [Category("K6 Cases")]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 1)]
         [TestCase(new int[] { -1, -2, -3, -4, -5 }, -1)]
         [TestCase(new int[] { 1 }, 1)]
-        [TestCase(new int[] { 1, 1, 1, 1, 1}, 1)]
-        public void TestingK5_ReturnHighestNumber(int[] myIntArray, int expected)
+        [TestCase(new int[] { 1, 1, 1, 1, 1 }, 1)]
+        [TestCase(new int[] { -7, -5, 5, 8, 22 }, -5)]
+        [TestCase(new int[] { 103, 540, -222, -102}, -102)]
+        public void TestingK6_ClosestToZero(int[] myIntArray, int expected)
         {
-            Assert.That(expected, Is.EqualTo(CodeK5.ReturnHighestNumber(myIntArray)));
+            Assert.That(expected, Is.EqualTo(CodeK6.ClosestToZero(myIntArray))); ;
         }
-        [TestCase(new int[] {  })]
-        public void TestingK5_ReturnHighestNumber_Exceptions(int[] myIntArray)
+
+        [TestCase(new int[] { })]
+        public void TestingK6_ClosestToZero_Exceptions(int[] myIntArray)
         {
-            var ex = Assert.Throws<ArgumentNullException>(() => CodeK5.ReturnHighestNumber(myIntArray));
-            Assert.AreEqual("The array is empty!", ex.ParamName);
+            Assert.Throws(Is.TypeOf<NullReferenceException>().And.Message.EqualTo("Array can't be empty!"), () => CodeK6.ClosestToZero(myIntArray));
         }
+
     }
+
+
 } 
